@@ -1,15 +1,23 @@
 package FlitraggioDati;
 import java.util.ArrayList;
+import java.util.Scanner;
 public class prodotti {
 	
 	//metodo filtro che restituisce solo prodotti della stessa categoria
 			
 			public static void filtroCategoria(ArrayList <Prodotto> prodotti) {
+				Scanner scanner= new Scanner(System.in);
+				
+				System.out.println("Inserisci categoria:");
+				String rispCategoria= scanner.nextLine();
+				System.out.println("Stampa lista:");
+				
 				for(Prodotto s: prodotti) {
-					if(s.categoria.equals("condimento")) {
-						System.out.print(s.nome);
+					if(s.categoria.equals(rispCategoria)) {
+						System.out.println(s.nome);
 					}
 				}
+				scanner.close();
 			}
 
 	public static void main(String[] args) {
@@ -25,6 +33,11 @@ public class prodotti {
 		prodotti.add(c);
 		prodotti.add(d);
 		prodotti.add(e);
+		
+		prodotti p= new prodotti();
+		
+		p.filtroCategoria(prodotti);
+		
 		
 
 	}
